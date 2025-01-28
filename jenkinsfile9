@@ -39,7 +39,7 @@ pipeline {
             steps {
                 echo 'Compilation du projet sans tenir compte des classes de test : ${params.VERSION}'
                 withMaven(maven : 'localMaven') {
-                    sh "mvn -B -DskipTests clean install -Dproject.version = ${params.VERSION}"
+                    sh "mvn -B -DskipTests clean install -Dproject.version=${params.VERSION}"
                 }
             }
         }
