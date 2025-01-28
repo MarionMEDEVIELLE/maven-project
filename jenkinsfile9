@@ -1,7 +1,8 @@
 pipeline {
     agent {label "jdk17"}
     parameters {
-    name : 'VERSION', defaultValue : '1.0.0', description : 'version du produit'
+    string(name: 'VERSION', defaultValue: '1.0.0', description: 'version du produit')
+    choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'production'], description: 'Choisissez l\'environnement')
     }
     stages {
         stage('clone codebase') {
@@ -40,6 +41,14 @@ pipeline {
                 echo 'Compilation du projet sans tenir compte des classes de test : ${params.VERSION}'
                 withMaven(maven : 'localMaven') {
                     sh "mvn -B -DskipTests clean install -Dproject.version=${params.VERSION}"
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Déploiement des artéfactes dans l'environnement : ${params.ENVIRONMENT}'
+                withMaven(maven : 'localMaven') {
+                    sh "./deploy.sh --env=${params.ENVIRONMENT} --version=${params.VERSION}"
                 }
             }
         }
