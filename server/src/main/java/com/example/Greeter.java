@@ -18,6 +18,10 @@ public class Greeter {
    public void doSomeThing() {
    // do no thing yet !
   }
+
+  public void doNoThing() {
+   // do no thing yet !
+  }
  /**
  * @param someone name of a person
  * @return greeting string
