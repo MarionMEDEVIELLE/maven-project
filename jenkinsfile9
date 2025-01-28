@@ -1,7 +1,7 @@
 pipeline {
     agent {label "jdk17"}
     parameters {
-    name: 'VERSION', defaultValue : '1.0.0', description : 'version du produit'
+    name : 'VERSION', defaultValue : '1.0.0', description : 'version du produit'
     }
     stages {
         stage('clone codebase') {
