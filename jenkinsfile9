@@ -44,13 +44,13 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Déploiement des artéfactes dans l environnement : ${params.ENVIRONMENT}'
-                withMaven(maven : 'localMaven') {
-                    sh "./deploy.sh --env=${params.ENVIRONMENT} --version=${params.VERSION}"
-                }
-            }
-        }
+        //stage('Deploy') {
+          //  steps {
+           //     echo 'Déploiement des artéfactes dans l environnement : ${params.ENVIRONMENT}'
+             //   withMaven(maven : 'localMaven') {
+             //       sh "./deploy.sh --env=${params.ENVIRONMENT} --version=${params.VERSION}"
+             //   }
+           // }
+       // }
     }
 }
