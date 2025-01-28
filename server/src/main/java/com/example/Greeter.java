@@ -6,27 +6,30 @@ import java.lang.Math;
 */
 
 public class Greeter {
+
+  public String nom = "Fred";
+  public int age = 0;
  
   /**
   * this in contructor
   */
- 
   public Greeter() {
    // contructeur par défaut
   }
 
    public void doSomeThing() {
-   // do no thing yet !
+   System.out.print("Bonjour le Monde");
   }
 
   public void doNoThing() {
-   // do no thing yet !
+   System.out.print("Bonjour le Monde");
   }
  /**
  * @param someone name of a person
  * @return greeting string
  */
   public final String greet(final String someone) {
+   System.out.print("Bonjour le Monde");
    return String.format("Hello Again, %s!", someone);
    
  }
